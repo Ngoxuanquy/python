@@ -6,16 +6,17 @@ import sys
 def read_image(filepath: str):
     """
     Read the image in both color and grayscale formats.
-
-    Parameters:
-    - filepath (str): The path to the image file.
-
-    Returns:
-    - tuple: A tuple containing the BGR and grayscale images.
     """
     img_bgr = cv2.imread(filepath, cv2.IMREAD_COLOR)
     img_gray = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)
+
+    # Check if images are loaded successfully
+    if img_bgr is None or img_gray is None:
+        print(f"Error: Unable to load image at {filepath}")
+        sys.exit()
+
     return img_bgr, img_gray
+
 
 
 def resize_and_preprocess(img_gray, img_bgr):

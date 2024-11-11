@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cataract Detection</title>
+    <style>
+        /* Thiết lập reset cho toàn trang */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Đặt nền toàn trang */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #83a4d4, #b6fbff);
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Kiểu thẻ chứa form */
+        .container {
+            background: #fff;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        /* Kiểu cho tiêu đề */
+        h1 {
+            font-size: 1.8rem;
+            color: #4e89ae;
+            margin-bottom: 1rem;
+        }
+
+        /* Kiểu cho nút chọn file */
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Kiểu cho label của file */
+        .file-label {
+            display: inline-block;
+            padding: 0.8rem 1.2rem;
+            background-color: #4e89ae;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .file-label:hover {
+            background-color: #357ca5;
+        }
+
+        /* Kiểu cho nút upload */
+        button[type="submit"] {
+            padding: 0.8rem 1.2rem;
+            background-color: #57c5b6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45b3a2;
+        }
+
+        /* Kiểu thông báo file đã chọn */
+        .file-name {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload an Image for Cataract Detection1232</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="file-upload" class="file-label">Choose a file</label>
+            <input type="file" name="file" id="file-upload" required>
+            <div class="file-name" id="file-name">No file chosen</div>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript để hiển thị tên file đã chọn
+        const fileInput = document.getElementById('file-upload');
+        const fileNameDisplay = document.getElementById('file-name');
+
+        fileInput.addEventListener('change', function () {
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = fileInput.files[0].name;
+            } else {
+                fileNameDisplay.textContent = 'No file chosen';
+            }
+        });
+    </script>
+</body>
+</html>

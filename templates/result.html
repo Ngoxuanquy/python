@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        img {
+            max-width: 500px;
+            max-height: 500px;
+            margin-top: 20px;
+            border: 2px solid #333;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detection Result</h1>
+   <p>Mức độ đục thủy tinh thể mắt trái: {{ message.split(',')[0] }}</p>
+
+    <img src="{{ image_url }}" alt="Processed Image">
+    <br><br>
+    <a href="/">Quay lại trang chủ</a>
+</body>
+</html>
